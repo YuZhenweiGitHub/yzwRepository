@@ -26,7 +26,8 @@ public class CreateCodeController extends BaseController {
 
 	private CreateCodeManager createcodeService;
 
-    /**列表
+    /**
+     * 列表
      * @param page
      * @return
      */
@@ -49,7 +50,8 @@ public class CreateCodeController extends BaseController {
         return mv;
     }
 
-    /**去代码生成器页面(进入弹窗)
+    /**
+     * 去代码生成器页面(进入弹窗)
      * @return
      * @throws Exception
      */
@@ -70,7 +72,8 @@ public class CreateCodeController extends BaseController {
         return mv;
     }
 
-    /**生成代码
+    /**
+     * 生成代码
      * @param response
      * @throws Exception
      */
@@ -158,7 +161,8 @@ public class CreateCodeController extends BaseController {
         return mv;
     }
 
-    /**生成代码
+    /**
+     * 生成代码
      * @param response
      * @throws Exception
      */
@@ -265,7 +269,8 @@ public class CreateCodeController extends BaseController {
         }
     }
 
-    /**保存到数据库
+    /**
+     * 保存到数据库
      * @throws Exception
      */
     public void save(PageData pd) throws Exception{
@@ -279,7 +284,8 @@ public class CreateCodeController extends BaseController {
         createcodeService.save(pd);
     }
 
-    /**删除
+    /**
+     * 删除
      * @param out
      */
     @RequestMapping(value="/delete")
