@@ -3,8 +3,9 @@ package com.company.controller.system;
 import com.alibaba.fastjson.JSONObject;
 import com.company.service.SysUserService;
 import com.company.utils.Const;
+import com.company.utils.PageData;
 import com.company.utils.ResponseContextUtil;
-import com.sun.swing.internal.plaf.synth.resources.synth_sv;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,18 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * Created by yzw on 2017/5/23.
  */
 @RequestMapping(value = "/login")
 @Controller
-public class LoginController {
+public class LoginController extends BaseController{
 
-    private Logger logger = Logger.getLogger(this.getClass().getName());
+    private Logger logger = Logger.getLogger(this.getClass());
 
     @Autowired
     private SysUserService sysUserService;
@@ -41,23 +39,29 @@ public class LoginController {
     public @ResponseBody
     ResponseContextUtil verifyLogin(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        String username = request.getParameter("userName");
-        String password = request.getParameter("passWord");
         ResponseContextUtil responseContextUtil = new ResponseContextUtil();
-        Map map = new HashMap();
 
-        //sysUserService.findVerifyLogin(map);
+        PageData data = this.getPageData();
+        if (data.containsKey("userName")&&data.containsKey("passWord")){
+            String username = data.getString("userName");
+            String password = data.getString("passWord");
 
-        HttpSession session = request.getSession();
+            //sysUserService.findVerifyLogin(data);
 
-        session.setAttribute("userName",username);
-        session.setAttribute("passWord",password);
+            HttpSession session = request.getSession();
 
-        responseContextUtil.setResult(Const.API_RETURN_RESULT_SUCCESS);
-        responseContextUtil.setMessage("登录成功！");
-        JSONObject data = new JSONObject();
-        data.put("locationUrl","/login/mainIndex.html");
-        responseContextUtil.setData(data);
+            session.setAttribute("userName",username);
+            session.setAttribute("passWord",password);
+
+            responseContextUtil.setResult(Const.API_RETURN_RESULT_SUCCESS);
+            responseContextUtil.setMessage("登录成功！");
+            JSONObject obj = new JSONObject();
+            obj.put("locationUrl","/login/mainIndex.html");
+            responseContextUtil.setData(obj);
+        } else {
+            responseContextUtil.setResult(Const.API_RETURN_RESULT_FAIL);
+            responseContextUtil.setMessage("登录失败，请检查参数！");
+        }
         return responseContextUtil;
     }
 

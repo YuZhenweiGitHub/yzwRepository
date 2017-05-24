@@ -1,14 +1,12 @@
 package com.company.controller.system;
 
-import org.springframework.http.HttpRequest;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.logging.Logger;
 
 /**
  * Created by yzw on 2017/5/8.
@@ -17,7 +15,7 @@ import java.util.logging.Logger;
 @RequestMapping(value = "/system")
 public class SystemCommonController {
 
-    private Logger logger = Logger.getLogger(this.getClass().getName());
+    private Logger logger = Logger.getLogger(this.getClass());
 
     /**
      * 跳转登录页

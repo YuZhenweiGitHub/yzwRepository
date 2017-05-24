@@ -1,6 +1,7 @@
 package com.company.controller.system;
 
 
+import com.company.utils.PageData;
 import com.company.utils.UuidUtil;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,7 +28,14 @@ public class BaseController {
 		this.response = response;
 	}
 
-	
+	/**
+	 * new PageData对象
+	 * @return
+	 */
+	public PageData getPageData(){
+		return new PageData(this.getRequest());
+	}
+
 	/**得到ModelAndView
 	 * @return
 	 */
