@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Empty Page</title>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <style>
+        body{background: none;}
+    </style>
+</head>
+
+<body onload="IFrameResize()" >
+        <div class="row border-bottom">
+        </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2>我的桌面</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="/login/mainIndex.html">首页</a>
+                        </li>
+                        <li class="active">
+                            <strong>我的桌面</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-sm-8">
+                    <div class="title-action">
+                        <a href="/login/myDesktop.html" class="btn btn-primary">This is action area</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrapper wrapper-content">
+                <div class="middle-box text-center animated fadeInRightBig">
+                    <h3 class="font-bold">Hello, Welcome come to YZW+ </h3>
+                    <div class="error-desc">
+                        想把最好的给你，爱情也好，友情也罢！
+                        <br/><a href="/login/mainIndex.html" class="btn btn-primary m-t">Dashboard</a>
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- Mainly scripts -->
+    <script src="/static/js/jquery-2.1.1.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="/static/js/inspinia.js"></script>
+    <script src="/static/js/plugins/pace/pace.min.js"></script>
+
+    <script>
+        //自适应iframe高度
+        function IFrameResize(){
+            //alert(this.document.body.scrollHeight); //弹出当前页面的高度
+            var obj = parent.document.getElementById("childFrame"); //取得父页面IFrame对象
+            //alert(obj.height); //弹出父页面中IFrame中设置的高度
+            obj.height = this.document.body.scrollHeight; //调整父页面中IFrame的高度为此页面的高度
+        }
+    </script>
+
+</body>
+
+</html>

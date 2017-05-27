@@ -10,9 +10,9 @@
 	</settings>
 
 	<typeAliases>
-		<!-- <typeAlias type="com.yian.onco.util.PageData" alias="pd"/> -->
+		<typeAlias type="com.company.utils.PageData" alias="pd"/>
 		<!-- 分页 -->
-		<!-- <typeAlias type="com.yian.onco.entity.Page" alias="Page"/> -->
+		<typeAlias type="com.company.utils.Page" alias="Page"/>
 		<!-- 数据字典 -->
 		<!-- <typeAlias type="com.yian.onco.entity.system.Dictionaries" alias="Dictionaries"/> -->
 	</typeAliases>

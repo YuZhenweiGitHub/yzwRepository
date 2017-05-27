@@ -20,7 +20,8 @@ public class CreateCodeService implements CreateCodeManager{
 	@Resource(name = "daoSupport")
 	private DaoSupport dao;
 	
-	/**新增
+	/**
+	 * 新增
 	 * @param pd
 	 * @throws Exception
 	 */
@@ -29,7 +30,8 @@ public class CreateCodeService implements CreateCodeManager{
 		dao.save("CreateCodeMapper.save", pd);
 	}
 	
-	/**删除
+	/**
+	 * 删除
 	 * @param pd
 	 * @throws Exception
 	 */
@@ -47,7 +49,8 @@ public class CreateCodeService implements CreateCodeManager{
 		return (List<PageData>)dao.findForList("CreateCodeMapper.datalistPage", page);
 	}
 	
-	/**通过id获取数据
+	/**
+	 * 通过id获取数据
 	 * @param pd
 	 * @throws Exception
 	 */
@@ -56,7 +59,8 @@ public class CreateCodeService implements CreateCodeManager{
 		return (PageData)dao.findForObject("CreateCodeMapper.findById", pd);
 	}
 
-	/**批量删除
+	/**
+	 * 批量删除
 	 * @param ArrayDATA_IDS
 	 * @throws Exception
 	 */

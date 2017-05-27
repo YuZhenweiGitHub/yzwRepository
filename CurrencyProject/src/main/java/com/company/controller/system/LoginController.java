@@ -77,4 +77,17 @@ public class LoginController extends BaseController{
 
         return new ModelAndView("/page/mainIndex/index");
     }
+
+    /**
+     * 桌面
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/myDesktop.html")
+    public ModelAndView MY_DESKTOP(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        return new ModelAndView("/page/mainIndex/empty_page");
+    }
 }
