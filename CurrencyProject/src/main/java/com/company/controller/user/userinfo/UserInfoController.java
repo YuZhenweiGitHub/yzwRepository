@@ -32,8 +32,8 @@ import com.company.service.user.userinfo.UserInfoManager;
 public class UserInfoController extends BaseController {
 
 	String menuUrl = "userinfo/list.do"; //菜单地址(权限用)
-	@Resource(name="userinfoService")
-	private UserInfoManager userinfoService;
+	@Resource(name="userInfoService")
+	private UserInfoManager userInfoService;
 
 	/**保存
 	 * @param
@@ -89,7 +89,7 @@ public class UserInfoController extends BaseController {
 		if(null != pd.get("DELTE_FLAG_")){
 			pd.put("DELTE_FLAG_", pd.get("DELTE_FLAG_"));
 		}
-		userinfoService.save(pd);
+		userInfoService.save(pd);
 		mv.addObject("msg","success");
 		mv.setViewName("save_result");
 		return new ModelAndView("redirect:/userinfo/list");
@@ -105,7 +105,7 @@ public class UserInfoController extends BaseController {
 		if(!Jurisdiction.buttonJurisdiction(menuUrl, "del")){return;} //校验权限
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		userinfoService.delete(pd);
+		userInfoService.delete(pd);
 		out.write("success");
 		out.close();
 	}
@@ -121,7 +121,7 @@ public class UserInfoController extends BaseController {
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		userinfoService.edit(pd);
+		userInfoService.edit(pd);
 		mv.addObject("msg","success");
 		mv.setViewName("save_result");
 		return new ModelAndView("redirect:/userinfo/list");
@@ -143,7 +143,7 @@ public class UserInfoController extends BaseController {
 			pd.put("keywords", keywords.trim());
 		}
 		page.setPd(pd);
-		List<PageData>	varList = userinfoService.list(page);	//列出UserInfo列表
+		List<PageData>	varList = userInfoService.list(page);	//列出UserInfo列表
 		mv.setViewName("user/userinfo/userinfo_list");
 		mv.addObject("varList", varList);
 		mv.addObject("pd", pd);
@@ -175,7 +175,7 @@ public class UserInfoController extends BaseController {
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		pd = userinfoService.findById(pd);	//根据ID读取
+		pd = userInfoService.findById(pd);	//根据ID读取
 		mv.setViewName("user/userinfo/userinfo_edit");
 		mv.addObject("msg", "edit");
 		mv.addObject("pd", pd);
@@ -198,7 +198,7 @@ public class UserInfoController extends BaseController {
 		String DATA_IDS = pd.getString("DATA_IDS");
 		if(null != DATA_IDS && !"".equals(DATA_IDS)){
 			String ArrayDATA_IDS[] = DATA_IDS.split(",");
-			userinfoService.deleteAll(ArrayDATA_IDS);
+			userInfoService.deleteAll(ArrayDATA_IDS);
 			pd.put("msg", "ok");
 		}else{
 			pd.put("msg", "no");
