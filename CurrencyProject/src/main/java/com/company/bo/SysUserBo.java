@@ -17,6 +17,6 @@ public class SysUserBo {
     private DaoSupport dao;
 
     public List<Object> findVerifyLogin(Map map) throws Exception {
-        return (List<Object>) dao.findForList("sysUserMapper.findVerifyLogin",map);
+        return (List<Object>) dao.findForList("UserInfoMapper.findVerifyLogin",map);
     }
 }
