@@ -43,7 +43,7 @@ public class CreateCodeController extends BaseController {
         }
         page.setPd(pd);
         List<PageData>	varList = createcodeService.list(page);	//列出CreateCode列表
-        mv.setViewName("system/createcode/createcode_list");
+        mv.setViewName("page/createcode/createcode_list");
         mv.addObject("varList", varList);
         mv.addObject("pd", pd);
        // mv.addObject("QX",Jurisdiction.getHC());	//按钮权限
@@ -68,7 +68,7 @@ public class CreateCodeController extends BaseController {
         }else{
             mv.addObject("msg", "add");
         }
-        mv.setViewName("system/createcode/productCode");
+        mv.setViewName("page/createcode/productCode");
         return mv;
     }
 
@@ -155,7 +155,7 @@ public class CreateCodeController extends BaseController {
         ModelAndView mv = this.getModelAndView();
         PageData pd = new PageData();
         pd = this.getPageData();
-        mv.setViewName("system/createcode/add");
+        mv.setViewName("page/createcode/add");
         mv.addObject("pd", pd);
         //mv.addObject("QX",Jurisdiction.getHC());	//按钮权限
         return mv;

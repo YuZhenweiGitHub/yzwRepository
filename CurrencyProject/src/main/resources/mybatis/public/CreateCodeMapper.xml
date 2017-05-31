@@ -91,12 +91,12 @@
 	
 	<select id="columnlist" parameterType="String" resultType="pd">
 		select 
-			column_name,column_type,column_comment,column_key
-		from information_schema.columns where table_name=#{tablename} and TABLE_SCHEMA='tumour'
+			`column_name`,column_type,column_comment,column_key
+		from information_schema.columns where `table_name` = #{tablename} and TABLE_SCHEMA='yzw'
 	</select>
 	<select id="tablelist" parameterType="String" resultType="pd">
 		select 
-			table_name,table_comment
+			`table_name`,table_comment
 		from information_schema.tables where table_schema=#{tablename}
 	</select>
 	

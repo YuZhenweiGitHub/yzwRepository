@@ -28,7 +28,7 @@ public class SystemCommonController {
 
         logger.info(">>>>>>>>>>>>>>>>>>>>跳转登录页面<<<<<<<<<<<<<<<<<<<<");
 
-        return new ModelAndView("/page/system/login");
+        return new ModelAndView("page/system/login");
     }
 
     /**
@@ -42,6 +42,6 @@ public class SystemCommonController {
 
         logger.info(">>>>>>>>>>>>>>>>>>>>跳转注册页面<<<<<<<<<<<<<<<<<<<<");
 
-        return new ModelAndView("/page/system/register");
+        return new ModelAndView("page/system/register");
     }
 }

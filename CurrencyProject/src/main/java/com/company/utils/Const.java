@@ -8,14 +8,17 @@ import org.springframework.context.ApplicationContext;
 */
 public class Const {
 	public static final String SESSION_SECURITY_CODE = "sessionSecCode";//验证码
-	public static final String SESSION_VERIFICATION_CODE = "sessionSecCode";//手机验证码
 	public static final String SESSION_USER = "sessionUser";			//session用的用户
 	public static final String SESSION_ROLE_RIGHTS = "sessionRoleRights";
 	public static final String sSESSION_ROLE_RIGHTS = "sessionRoleRights";
 	public static final String SESSION_menuList = "menuList";			//当前菜单
+	public static final String SESSION_allmenuList = "allmenuList";		//全部菜单
+	public static final String SESSION_QX = "QX";
+	public static final String SESSION_userpds = "userpds";
 	public static final String SESSION_USERROL = "USERROL";				//用户对象
 	public static final String SESSION_USERNAME = "USERNAME";			//用户名
-	public static final String SESSION_USERID = "USERID";				//用户名
+	public static final String SESSION_USERID = "USERID";
+
 	public static final String LOGIN = "/login_toLogin.do";				//登录地址
 	public static final String SYSNAME = "admin/config/SYSNAME.txt";	//系统名称路径
 	public static final String PAGE	= "admin/config/PAGE.txt";			//分页条数配置路径

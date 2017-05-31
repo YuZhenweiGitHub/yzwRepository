@@ -19,7 +19,7 @@ public class MyExceptionResolver implements HandlerExceptionResolver {
 		logger.info("=============="+ex.getMessage()+"=============");
 		ex.printStackTrace();
 		logger.error("==============异常结束=============");
-		ModelAndView mv = new ModelAndView("/page/sys_error");
+		ModelAndView mv = new ModelAndView("page/system/sys_500");
 		mv.addObject("exception", ex.toString().replaceAll("\n", "<br/>"));
 		return mv;
 	}
