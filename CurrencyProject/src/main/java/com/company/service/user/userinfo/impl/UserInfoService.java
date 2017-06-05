@@ -1,7 +1,6 @@
 package com.company.service.user.userinfo.impl;
 
 import java.util.List;
-import java.util.Map;
 import javax.annotation.Resource;
 
 import com.company.bo.SysUserBo;
@@ -91,8 +90,8 @@ public class UserInfoService implements UserInfoManager{
 	}
 
 	@Override
-	public List<Object> findVerifyLogin(Map map) throws Exception {
-		return sysUserBo.findVerifyLogin(map);
+	public List<PageData> findUserInfoByUserName(PageData pd) throws Exception {
+		return sysUserBo.findUserInfoByUserName(pd);
 	}
 }
 

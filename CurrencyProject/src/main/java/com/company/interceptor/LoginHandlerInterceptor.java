@@ -16,11 +16,12 @@ import java.util.List;
 public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
 
     private String redirectUrl = "/system/login.html";
-    private String sessionKey = "userName";
+    private String sessionKey = "userInfo";
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+        response.addHeader("Access-Control-Allow-Origin","*");
         String url = PropertiesUtil.getProperty("redirectUrl");
         String key = PropertiesUtil.getProperty("sessionKey");
         redirectUrl = url == null ? redirectUrl : url;

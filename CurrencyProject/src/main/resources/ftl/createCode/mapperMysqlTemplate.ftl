@@ -42,7 +42,7 @@
 	<delete id="delete" parameterType="pd">
 		update 
 		<include refid="tableName"></include>
-		set is_delete=<include refid="deleteState"/>
+		set DELTE_FLAG_ = <include refid="deleteState"/>
 		where 
 			${priStr} = ${r"#{"}${priStr}${r"}"}
 	</delete>
@@ -103,7 +103,7 @@
 	<delete id="deleteAll" parameterType="String">
 		update 
 		<include refid="tableName"></include>
-		set is_delete=<include refid="deleteState"/>
+		set DELTE_FLAG_ = <include refid="deleteState"/>
 		where 
 			${priStr} in
 		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">

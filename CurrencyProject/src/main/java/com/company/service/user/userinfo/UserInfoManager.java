@@ -1,7 +1,6 @@
 package com.company.service.user.userinfo;
 
 import java.util.List;
-import java.util.Map;
 
 import com.company.utils.Page;
 import com.company.utils.PageData;
@@ -64,11 +63,11 @@ public interface UserInfoManager{
 
 	/**
 	 * 登录验证
-	 * @param map
+	 * @param pd
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> findVerifyLogin(Map map) throws Exception;
+	public List<PageData> findUserInfoByUserName(PageData pd) throws Exception;
 
 }
 
