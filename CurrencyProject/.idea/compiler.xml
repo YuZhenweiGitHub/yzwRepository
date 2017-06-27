@@ -9,7 +9,7 @@
         <module name="CurrencyProject" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel>
       <module name="CurrencyProject" target="1.8" />
     </bytecodeTargetLevel>
   </component>
