@@ -46,7 +46,7 @@
 	</sql>
 
 	<sql id="deleteState">
-		1
+		0
 	</sql>
 
 	<!-- 新增-->
@@ -137,7 +137,7 @@
 		<include refid="Field"></include>
 		from
 		<include refid="tableName"></include>
-		where 1=1
+		where DELTE_FLAG_ !=<include refid="deleteState"/>
 		<if test="pd.keywords!= null and pd.keywords != ''"><!-- 关键词检索 -->
 			and
 			(

@@ -1,6 +1,5 @@
 package com.company.controller.system;
 
-import com.alibaba.druid.sql.visitor.functions.If;
 import com.alibaba.fastjson.JSONObject;
 import com.company.service.user.userinfo.UserInfoManager;
 import com.company.utils.*;
@@ -19,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**

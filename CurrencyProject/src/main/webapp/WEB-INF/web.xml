@@ -7,6 +7,18 @@
     <welcome-file-list>
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
+
+    <!-- ================================= Log4j配置 ================================= -->
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:log4j.properties</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <param-value>3000</param-value>
+    </context-param>
+
     <!-- =================================Spring MVC配置================================= -->
     <servlet>
         <servlet-name>springMvc</servlet-name>
@@ -35,17 +47,6 @@
         <param-value>classpath:spring/applicationContext.xml</param-value>
     </context-param>
 
-    <!-- ================================= Log4j配置 ================================= -->
-    <context-param>
-        <param-name>log4jConfigLocation</param-name>
-        <param-value>classpath:log4j.properties</param-value>
-    </context-param>
-
-    <context-param>
-        <param-name>log4jRefreshInterval</param-name>
-        <param-value>3000</param-value>
-    </context-param>
-
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
@@ -63,6 +64,23 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!-- Shiro filter start -->
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>
+            org.springframework.web.filter.DelegatingFilterProxy
+        </filter-class>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- Shiro filter end -->
 
     <!-- 设置403,404,500页面 -->
     <error-page>

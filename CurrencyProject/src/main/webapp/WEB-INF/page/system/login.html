@@ -39,10 +39,10 @@
             <p>Login in. To see it in action.</p>
             <form class="m-t" role="form" id="LoginForm" METHOD="post">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="用户名" name="userName" value="yzw@qq.com" required="required">
+                    <input type="email" class="form-control" placeholder="用户名" id="userName" name="userName" value="yzw@qq.com">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="密码" name="passWord" value="123456" required="required">
+                    <input type="password" class="form-control" placeholder="密码" id="passWord" name="passWord" value="123456">
                 </div>
                 <button type="button" class="ladda-button ladda-button-demo btn btn-primary block full-width m-b" id="SubButton" data-style="zoom-in">登录</button>
                 <a href="login.html#"><small>忘记密码？</small></a>
@@ -65,10 +65,21 @@
     <script>
         $(document).ready(function (){
 
+            var userName = $('#userName');
+            var passWord = $('#passWord');
             var SubButton = $('#SubButton');
 
             SubButton.click(function (e) {
                 e.preventDefault();
+                if (userName.val()=="") {
+                    alert('请输入用户名！');
+                    return;
+                }
+                if (passWord.val()=="") {
+                    alert('请输入密码！');
+                    return;
+                }
+
                 var l = Ladda.create(this);
                 l.start();
                 $.post("/login/vrifyLogin.json",$("#LoginForm").serialize(),function(response){

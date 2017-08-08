@@ -24,9 +24,9 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
         response.addHeader("Access-Control-Allow-Origin","*");
         String url = PropertiesUtil.getProperty("redirectUrl");
         String key = PropertiesUtil.getProperty("sessionKey");
+
         redirectUrl = url == null ? redirectUrl : url;
         sessionKey = key == null ? sessionKey : key;
-
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse rep = (HttpServletResponse) response;
         HttpSession session = req.getSession();
