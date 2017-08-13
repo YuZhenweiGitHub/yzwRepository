@@ -35,7 +35,8 @@ public class UserInfoController extends BaseController {
 	@Resource(name="userInfoService")
 	private UserInfoManager userInfoService;
 
-	/**保存
+	/**
+	 * 保存
 	 * @param
 	 * @throws Exception
 	 */
@@ -95,7 +96,8 @@ public class UserInfoController extends BaseController {
 		return new ModelAndView("redirect:/userinfo/list");
 	}
 
-	/**删除
+	/**
+	 * 删除
 	 * @param out
 	 * @throws Exception
 	 */
@@ -110,7 +112,8 @@ public class UserInfoController extends BaseController {
 		out.close();
 	}
 
-	/**修改
+	/**
+	 * 修改
 	 * @param
 	 * @throws Exception
 	 */
@@ -127,7 +130,8 @@ public class UserInfoController extends BaseController {
 		return new ModelAndView("redirect:/userinfo/list");
 	}
 
-	/**列表
+	/**
+	 * 列表
 	 * @param page
 	 * @throws Exception
 	 */
@@ -144,14 +148,15 @@ public class UserInfoController extends BaseController {
 		}
 		page.setPd(pd);
 		List<PageData>	varList = userInfoService.list(page);	//列出UserInfo列表
-		mv.setViewName("user/userinfo/userinfo_list");
+		mv.setViewName("page/listPage/table_data_tables");
 		mv.addObject("varList", varList);
 		mv.addObject("pd", pd);
 		mv.addObject("QX",Jurisdiction.getHC());	//按钮权限
 		return mv;
 	}
 
-	/**去新增页面
+	/**
+	 * 去新增页面
 	 * @param
 	 * @throws Exception
 	 */
@@ -166,7 +171,8 @@ public class UserInfoController extends BaseController {
 		return mv;
 	}
 
-	/**去修改页面
+	/**
+	 * 去修改页面
 	 * @param
 	 * @throws Exception
 	 */
@@ -182,7 +188,8 @@ public class UserInfoController extends BaseController {
 		return mv;
 	}
 
-	/**批量删除
+	/**
+	 * 批量删除
 	 * @param
 	 * @throws Exception
 	 */

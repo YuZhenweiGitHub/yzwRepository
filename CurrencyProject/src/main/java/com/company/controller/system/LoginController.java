@@ -84,7 +84,9 @@ public class LoginController extends BaseController{
                 userInfo.put("LAST_LOGIN_TIME_",lastLoginTime);
                 //更新
                 userInfoService.edit(userInfo);
-                session.setAttribute("userInfo",userInfo);
+                session.setAttribute(Const.SESSION_USERNAME,userName);//用户名
+                session.setAttribute(Const.SESSION_USERID,userInfo.getString("USER_ID_"));//用户id
+                session.setAttribute(Const.SESSION_USER, userInfo);//user对象
 
                 //shiro加入身份验证
                 Subject subject = SecurityUtils.getSubject();

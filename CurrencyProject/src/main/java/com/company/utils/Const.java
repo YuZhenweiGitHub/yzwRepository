@@ -17,11 +17,11 @@ public class Const {
 	public static final String SESSION_userpds = "userpds";
 	public static final String SESSION_USERROL = "USERROL";				//用户对象
 	public static final String SESSION_USERNAME = "USERNAME";			//用户名
-	public static final String SESSION_USERID = "USERID";
+	public static final String SESSION_USERID = "USERID";				//用户id
 
 	public static final String LOGIN = "/login_toLogin.do";				//登录地址
 	public static final String SYSNAME = "admin/config/SYSNAME.txt";	//系统名称路径
-	public static final String PAGE	= "admin/config/PAGE.txt";			//分页条数配置路径
+	public static final String PAGE	= "10";//"admin/config/PAGE.txt";			//分页条数配置路径
 	public static final String EMAIL = "admin/config/EMAIL.txt";		//邮箱服务器配置路径
 	public static final String SMS1 = "admin/config/SMS1.txt";			//短信账户配置路径1
 	public static final String SMS2 = "admin/config/SMS2.txt";			//短信账户配置路径2

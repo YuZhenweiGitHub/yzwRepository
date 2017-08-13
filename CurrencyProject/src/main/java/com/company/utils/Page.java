@@ -21,7 +21,7 @@ public class Page {
 	
 	public Page(){
 		try {
-			this.showCount = Integer.parseInt(Tools.readTxtFile(Const.PAGE));
+			this.showCount = Integer.parseInt(Const.PAGE);
 		} catch (Exception e) {
 			this.showCount = 10;
 		}

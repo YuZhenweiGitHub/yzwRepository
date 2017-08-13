@@ -1,5 +1,6 @@
 package com.company.interceptor;
 
+import com.company.utils.Const;
 import com.company.utils.PropertiesUtil;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -16,7 +17,7 @@ import java.util.List;
 public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
 
     private String redirectUrl = "/system/login.html";
-    private String sessionKey = "userInfo";
+    private String sessionKey = Const.SESSION_USER;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

@@ -18,13 +18,14 @@
     <link href="/static/css/animate.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
     <style>
-        body{background: none;}
+        body{
+            background :none;
+        }
     </style>
 </head>
 
-<body onload="IFrameResize()" >
-        <div class="row border-bottom">
-        </div>
+<body>
+
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-sm-4">
                     <h2>我的桌面</h2>
@@ -64,17 +65,10 @@
     <!-- Custom and plugin javascript -->
     <script src="/static/js/inspinia.js"></script>
     <script src="/static/js/plugins/pace/pace.min.js"></script>
-
-    <script>
-        //自适应iframe高度
-        function IFrameResize(){
-            //alert(this.document.body.scrollHeight); //弹出当前页面的高度
-            var obj = parent.document.getElementById("childFrame"); //取得父页面IFrame对象
-            //alert(obj.height); //弹出父页面中IFrame中设置的高度
-            obj.height = this.document.body.scrollHeight; //调整父页面中IFrame的高度为此页面的高度
-        }
+    <script >
+        var obj = parent.document.getElementById("rightIframe"); //取得父页面IFrame对象
+        obj.height = this.document.body.scrollHeight; //调整父页面中IFrame的高度为此页面的高度
     </script>
-
 </body>
 
 </html>

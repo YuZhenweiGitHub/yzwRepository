@@ -19,7 +19,8 @@ public class ${objectName}Service implements ${objectName}Manager{
 	@Resource(name = "daoSupport")
 	private DaoSupport dao;
 	
-	/**新增
+	/**
+	 * 新增
 	 * @param pd
 	 * @throws Exception
 	 */
@@ -27,7 +28,8 @@ public class ${objectName}Service implements ${objectName}Manager{
 		dao.save("${objectName}Mapper.save", pd);
 	}
 	
-	/**删除
+	/**
+	 * 删除
 	 * @param pd
 	 * @throws Exception
 	 */
@@ -35,7 +37,8 @@ public class ${objectName}Service implements ${objectName}Manager{
 		dao.delete("${objectName}Mapper.delete", pd);
 	}
 	
-	/**修改
+	/**
+     * 修改
 	 * @param pd
 	 * @throws Exception
 	 */
@@ -43,7 +46,8 @@ public class ${objectName}Service implements ${objectName}Manager{
 		dao.update("${objectName}Mapper.edit", pd);
 	}
 	
-	/**列表
+	/**
+	 * 列表
 	 * @param page
 	 * @throws Exception
 	 */
@@ -52,7 +56,8 @@ public class ${objectName}Service implements ${objectName}Manager{
 		return (List<PageData>)dao.findForList("${objectName}Mapper.datalistPage", page);
 	}
 	
-	/**列表(全部)
+	/**
+	 * 列表(全部)
 	 * @param pd
 	 * @throws Exception
 	 */
@@ -61,7 +66,8 @@ public class ${objectName}Service implements ${objectName}Manager{
 		return (List<PageData>)dao.findForList("${objectName}Mapper.listAll", pd);
 	}
 	
-	/**通过id获取数据
+	/**
+     * 通过id获取数据
 	 * @param pd
 	 * @throws Exception
 	 */
@@ -69,7 +75,8 @@ public class ${objectName}Service implements ${objectName}Manager{
 		return (PageData)dao.findForObject("${objectName}Mapper.findById", pd);
 	}
 	
-	/**批量删除
+	/**
+     * 批量删除
 	 * @param ArrayDATA_IDS
 	 * @throws Exception
 	 */

@@ -35,7 +35,8 @@ public class ${objectName}Controller extends BaseController {
 	@Resource(name="${objectNameLower}Service")
 	private ${objectName}Manager ${objectNameLower}Service;
 	
-	/**保存
+	/**
+	 * 保存
 	 * @param
 	 * @throws Exception
 	 */
@@ -58,7 +59,8 @@ public class ${objectName}Controller extends BaseController {
 		return new ModelAndView("redirect:/${objectNameLower}/list");
 	}
 	
-	/**删除
+	/**
+     * 删除
 	 * @param out
 	 * @throws Exception
 	 */
@@ -73,7 +75,8 @@ public class ${objectName}Controller extends BaseController {
 		out.close();
 	}
 	
-	/**修改
+	/**
+	 * 修改
 	 * @param
 	 * @throws Exception
 	 */
@@ -90,7 +93,8 @@ public class ${objectName}Controller extends BaseController {
 		return new ModelAndView("redirect:/${objectNameLower}/list");
 	}
 	
-	/**列表
+	/**
+	 * 列表
 	 * @param page
 	 * @throws Exception
 	 */
@@ -114,7 +118,8 @@ public class ${objectName}Controller extends BaseController {
 		return mv;
 	}
 	
-	/**去新增页面
+	/**
+     * 去新增页面
 	 * @param
 	 * @throws Exception
 	 */
@@ -129,7 +134,8 @@ public class ${objectName}Controller extends BaseController {
 		return mv;
 	}	
 	
-	 /**去修改页面
+	 /**
+     * 去修改页面
 	 * @param
 	 * @throws Exception
 	 */
@@ -145,7 +151,8 @@ public class ${objectName}Controller extends BaseController {
 		return mv;
 	}	
 	
-	 /**批量删除
+	 /**
+     * 批量删除
 	 * @param
 	 * @throws Exception
 	 */

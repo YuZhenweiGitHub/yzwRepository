@@ -9,7 +9,7 @@
 
 	<!-- 字段 -->
 	<sql id="Field">
-		UU_ID_,
+		USER_ID_,
 		USER_NAME_,
 		USERE_NICK_NAME_,
 		PASS_WORD_,
@@ -28,7 +28,7 @@
 
 	<!-- 字段值 -->
 	<sql id="FieldValue">
-		#{UU_ID_},
+		#{USER_ID_},
 		#{USER_NAME_},
 		#{USERE_NICK_NAME_},
 		#{PASS_WORD_},
@@ -74,8 +74,8 @@
 		update
 		<include refid="tableName"></include>
 		set
-		<if test=" UU_ID_!=null and UU_ID_!='' " >
-			UU_ID_ = #{UU_ID_},
+		<if test=" USER_ID_!=null and USER_ID_!='' " >
+			USER_ID_ = #{USER_ID_},
 		</if>
 		<if test=" USER_NAME_!=null and USER_NAME_!='' " >
 			USER_NAME_ = #{USER_NAME_},
