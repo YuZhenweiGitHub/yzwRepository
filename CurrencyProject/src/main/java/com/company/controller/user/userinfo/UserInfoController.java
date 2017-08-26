@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
+
+import com.alibaba.fastjson.JSON;
+import com.company.entity.datatable.DataTable;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -153,6 +156,31 @@ public class UserInfoController extends BaseController {
 		mv.addObject("pd", pd);
 		mv.addObject("QX",Jurisdiction.getHC());	//按钮权限
 		return mv;
+	}
+
+	@RequestMapping(value="/ajaxList")
+	public @ResponseBody Object ajaxList(Page page) throws Exception{
+		logBefore(logger, Jurisdiction.getUsername()+"列表UserInfo");
+		//if(!Jurisdiction.buttonJurisdiction(menuUrl, "cha")){return null;} //校验权限(无权查看时页面会有提示,如果不注释掉这句代码就无法进入列表页面,所以根据情况是否加入本句代码)
+		ModelAndView mv = this.getModelAndView();
+		PageData pd = new PageData();
+		pd = this.getPageData();
+		Integer draw = Integer.parseInt(pd.getString("draw"));
+		String keywords = pd.getString("search[value]");				//关键词检索条件
+		if(null != keywords && !"".equals(keywords)){
+			pd.put("keywords", keywords.trim());
+		}
+		page.setPd(pd);
+		Integer totalRecords = userInfoService.findTotalRecords(pd);
+		page.setCurrentPage(Integer.parseInt(pd.getString("start")));
+		page.setShowCount(Integer.parseInt(pd.getString("length")));
+		List<PageData> varList = userInfoService.list(page);	//列出UserInfo列表
+		DataTable table = new DataTable();
+		table.setColumns(varList);
+		table.setDraw(draw);
+		table.setTotalRecords(totalRecords);
+		/*mv.addObject("QX",Jurisdiction.getHC());	*///按钮权限
+		return table.toString();
 	}
 
 	/**

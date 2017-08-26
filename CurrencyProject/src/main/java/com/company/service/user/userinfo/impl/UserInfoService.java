@@ -60,7 +60,11 @@ public class UserInfoService implements UserInfoManager{
 	public List<PageData> list(Page page)throws Exception{
 		return (List<PageData>)dao.findForList("UserInfoMapper.datalistPage", page);
 	}
-	
+
+	public Integer findTotalRecords(PageData pd)throws Exception {
+		return (Integer) dao.findForObject("UserInfoMapper.findTotalRecords",pd);
+	}
+
 	/**
 	 * 列表(全部)
 	 * @param pd
@@ -92,6 +96,11 @@ public class UserInfoService implements UserInfoManager{
 	@Override
 	public List<PageData> findUserInfoByUserName(PageData pd) throws Exception {
 		return sysUserBo.findUserInfoByUserName(pd);
+	}
+
+	@Override
+	public Boolean checkUserName(String userName) throws Exception {
+		return sysUserBo.checkUserName(userName);
 	}
 }
 

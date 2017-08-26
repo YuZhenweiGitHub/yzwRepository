@@ -1,5 +1,6 @@
 package com.company.interceptor;
 
+import com.alibaba.fastjson.JSONObject;
 import com.company.utils.Const;
 import com.company.utils.PropertiesUtil;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +28,11 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
         response.addHeader("Access-Control-Allow-Origin","*");
         String url = PropertiesUtil.getProperty("redirectUrl");
         String key = PropertiesUtil.getProperty("sessionKey");
+        String requestUri = request.getRequestURI();
 
+        if(requestUri.matches(Const.NO_INTERCEPTOR_PATH)){
+            return true;
+        }
         redirectUrl = url == null ? redirectUrl : url;
         sessionKey = key == null ? sessionKey : key;
         HttpServletRequest req = (HttpServletRequest) request;
@@ -34,7 +41,14 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
         if (session == null || session.getAttribute(sessionKey) == null) {
             //如果判断是 AJAX 请求,直接设置为session超时
             if (req.getHeader("x-requested-with") != null && req.getHeader("x-requested-with").equals("XMLHttpRequest")) {
-                rep.setHeader("sessionstatus", "timeout");
+                rep.setContentType("text/html; charset=GBK");
+                PrintWriter out = response.getWriter();
+                JSONObject jo = new JSONObject();
+                jo.put("result","timeout");
+                jo.put("message","Session失效，请重新登录!");
+                out.println(jo);
+                out.flush();
+                out.close();
                 return false;
             } else {
                 System.out.print("=============" + req.getContextPath());

@@ -19,4 +19,13 @@ public class SysUserBo {
     public List<PageData> findUserInfoByUserName(PageData pd) throws Exception {
         return (List<PageData>) dao.findForList("UserInfoMapper.findUserInfoByUserName" , pd);
     }
+
+    public Boolean checkUserName(String userName) throws Exception {
+        Integer count = (Integer) dao.findForObject("UserInfoMapper.checkUserName",userName);
+        if (count>0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

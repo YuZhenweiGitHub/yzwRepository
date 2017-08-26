@@ -62,9 +62,7 @@
                     <li class="active">
                         <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="javascript:mainIndex.jumpRightIframe('/userinfo/list')">用户列表</a></li>
-                            <li><a href="dashboard_2.html">Dashboard v.2</a></li>
-                            <li><a href="dashboard_5.html">Dashboard v.5 <span class="label label-primary pull-right">NEW</span></a></li>
+                            <li class="active"><a href="javascript:mainIndex.jumpRightIframe('/userinfo/list')">用户列表<span class="label label-primary pull-right">NEW</span></a></li>
                         </ul>
                     </li>
                     <li>
@@ -75,9 +73,6 @@
                         <a href="index.html#"><i class="fa fa-table"></i> <span class="nav-label">Tables</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="table_basic.html">Static Tables</a></li>
-                            <li><a href="table_data_tables.html">Data Tables</a></li>
-                            <li><a href="table_foo_table.html">Foo Tables</a></li>
-                            <li><a href="jq_grid.html">jqGrid</a></li>
                         </ul>
                     </li>
 
@@ -88,7 +83,7 @@
                         <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
                     </li>
                     <li class="special_link">
-                        <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
+                        <a href="#"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
                     </li>
                 </ul>
 
@@ -755,6 +750,7 @@
         var mainIndex = {
             jumpRightIframe : function (jumpUrl) {
                 document.getElementById("rightIframe").src = jumpUrl;
+                //引入公共js
                 var oHead = document.getElementById("rightIframe").contentWindow.document.getElementsByTagName('head')[0];
                 var script= document.createElement('script');
                 script.type = 'text/javascript';

@@ -39,6 +39,13 @@ public interface UserInfoManager{
 	 * @throws Exception
 	 */
 	public List<PageData> list(Page page)throws Exception;
+
+	/**
+	 * 总记录数
+	 * @param pd
+	 * @throws Exception
+	 */
+	public Integer findTotalRecords(PageData pd)throws Exception;
 	
 	/**
 	 * 列表(全部)
@@ -68,6 +75,14 @@ public interface UserInfoManager{
 	 * @throws Exception
 	 */
 	public List<PageData> findUserInfoByUserName(PageData pd) throws Exception;
+
+	/**
+	 * 验证用户名是否唯一
+	 * @param userName
+	 * @return
+	 * @throws Exception
+	 */
+	public Boolean checkUserName(String userName) throws Exception;
 
 }
 

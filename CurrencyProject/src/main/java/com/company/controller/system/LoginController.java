@@ -150,10 +150,10 @@ public class LoginController extends BaseController{
 
         Session session = Jurisdiction.getSession();
         if(session!=null){
-            PageData userInfo = (PageData) session.getAttribute("userInfo");
+            PageData userInfo = (PageData) session.getAttribute(Const.SESSION_USER);
             String userName = userInfo.getString("userName");
             logger.info(">>>>>>>>>>>>>>>>>>>>"+DateUtil.getTime()+":"+userName+" 退出系统<<<<<<<<<<<<<<<<<<<<");
-            session.removeAttribute("userInfo");
+            session.removeAttribute(Const.SESSION_USER);
             //shiro销毁
             Subject subject = SecurityUtils.getSubject();
             subject.logout();
@@ -198,27 +198,61 @@ public class LoginController extends BaseController{
     public @ResponseBody ResponseContextUtil register(HttpServletRequest request, HttpServletResponse response) {
 
         ResponseContextUtil responseContextUtil = new ResponseContextUtil();
+        PageData pd = new PageData();
+        pd = this.getPageData();
+        if (pd.containsKey("PASS_WORD_")&&pd.containsKey("USERE_EMAIL_")&&pd.containsKey("USER_NAME_")){
+            try {
+                PageData userInfo = new PageData();
+                userInfo.put("USER_ID_", UuidUtil.get32UUID());
+                userInfo.put("REGISTER_TIME_", DateUtil.getTime());
+                String userName = pd.getString("USER_NAME_").toLowerCase();
+                userInfo.put("USER_NAME_", userName);
+                userInfo.put("USERE_EMAIL_", pd.getString("USERE_EMAIL_"));
+                String passWord = pd.getString("PASS_WORD_");
+                String pwd = new SimpleHash("SHA-1",userName,passWord).toString();
+                userInfo.put("PASS_WORD_", pwd);
+                //获取真实登录IP
+                String LAST_LOGIN_IP_ = InternetProtocol.getRemoteAddr(request);
+                userInfo.put("LAST_LOGIN_IP_", LAST_LOGIN_IP_);
+                userInfo.put("DELTE_FLAG_", "1");
+                userInfo.put("USER_STATUS_", "0");
 
-        try {
-            PageData userInfo = new PageData();
-            userInfo.put("UU_ID_", UuidUtil.get32UUID());
-            userInfo.put("REGISTER_TIME_", DateUtil.getTime());
-            //获取真实登录IP
-            String LAST_LOGIN_IP_ = InternetProtocol.getRemoteAddr(request);
-            userInfo.put("LAST_LOGIN_IP_", LAST_LOGIN_IP_);
-            userInfo.put("DELTE_FLAG_", Const.IS_DELETE);
-            userInfo.put("USER_STATUS_", "0");
+                userInfoService.save(userInfo);
 
-            userInfoService.save(userInfo);
-
-            responseContextUtil.setResult(Const.API_RETURN_RESULT_SUCCESS);
-            responseContextUtil.setMessage("注册成功！");
-            JSONObject obj = new JSONObject();
-            obj.put("locationUrl","/system/login.html");
-            responseContextUtil.setData(obj);
-        }catch (Exception e){
+                responseContextUtil.setResult(Const.API_RETURN_RESULT_SUCCESS);
+                responseContextUtil.setMessage("注册成功");
+                JSONObject obj = new JSONObject();
+                obj.put("locationUrl","/system/login.html");
+                responseContextUtil.setData(obj);
+            }catch (Exception e){
+                responseContextUtil.setResult(Const.API_RETURN_RESULT_FAIL);
+                responseContextUtil.setMessage("注册失败");
+            }
+        } else {
             responseContextUtil.setResult(Const.API_RETURN_RESULT_FAIL);
-            responseContextUtil.setMessage("注册失败！");
+            responseContextUtil.setMessage("缺少参数");
+        }
+        return responseContextUtil;
+    }
+
+    @RequestMapping(value = "/checkUserName.json")
+    public @ResponseBody ResponseContextUtil checkUserName(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        ResponseContextUtil responseContextUtil = new ResponseContextUtil();
+        PageData pd = new PageData();
+        pd = this.getPageData();
+        if (pd.containsKey("USER_NAME_")){
+            String USER_NAME_ = pd.getString("USER_NAME_").toLowerCase();
+
+            if(userInfoService.checkUserName(USER_NAME_)){
+                responseContextUtil.setResult(Const.API_RETURN_RESULT_SUCCESS);
+                responseContextUtil.setMessage("验证通过");
+            } else {
+                responseContextUtil.setResult(Const.API_RETURN_RESULT_FAIL);
+                responseContextUtil.setMessage("用户名已存在");
+            }
+        } else {
+            responseContextUtil.setResult(Const.API_RETURN_RESULT_FAIL);
+            responseContextUtil.setMessage("缺少参数");
         }
         return responseContextUtil;
     }

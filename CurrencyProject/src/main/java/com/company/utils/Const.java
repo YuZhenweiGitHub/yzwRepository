@@ -2,11 +2,17 @@ package com.company.utils;
 
 import org.springframework.context.ApplicationContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 项目名称：
  * 修改日期：2015/11/2
 */
 public class Const {
+
+	public static final List<String> PASS_URL_ = new ArrayList<String>();
+
 	public static final String SESSION_SECURITY_CODE = "sessionSecCode";//验证码
 	public static final String SESSION_USER = "sessionUser";			//session用的用户
 	public static final String SESSION_ROLE_RIGHTS = "sessionRoleRights";
@@ -32,7 +38,7 @@ public class Const {
 	public static final String FILEPATHIMG = "uploadFiles/uploadImgs/";	//图片上传路径
 	public static final String FILEPATHFILE = "uploadFiles/file/";		//文件上传路径
 	public static final String FILEPATHTWODIMENSIONCODE = "uploadFiles/twoDimensionCode/"; //二维码存放路径
-	public static final String NO_INTERCEPTOR_PATH = ".*/((login)|(logout)|(code)|(app)|(weixin)|(static)|(main)|(websocket)).*";	//不对匹配该值的访问路径拦截（正则）
+	public static final String NO_INTERCEPTOR_PATH = "(/login/login.html)|(/login/loginOut.html)|(/login/register.json)|(/login/checkUserName.json)";	//不对匹配该值的访问路径拦截（正则）
 	public static ApplicationContext WEB_APP_CONTEXT = null; //该值会在web容器启动时由WebAppContextListener初始化
 	
 	/**

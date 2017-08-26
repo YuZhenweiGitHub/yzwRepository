@@ -66,8 +66,10 @@
     <script src="/static/js/inspinia.js"></script>
     <script src="/static/js/plugins/pace/pace.min.js"></script>
     <script >
-        var obj = parent.document.getElementById("rightIframe"); //取得父页面IFrame对象
-        obj.height = this.document.body.scrollHeight; //调整父页面中IFrame的高度为此页面的高度
+        $(document).ready(function() {
+            var obj = parent.document.getElementById("rightIframe"); //取得父页面IFrame对象
+            obj.height = document.body.scrollHeight; //调整父页面中IFrame的高度为此页面的高度
+        });
     </script>
 </body>
 

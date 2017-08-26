@@ -56,6 +56,7 @@
         </div>
     </div>
 
+    <script src="/static/js/public.js"></script>
     <!-- Mainly scripts -->
     <script src="/static/js/jquery-2.1.1.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
@@ -78,11 +79,11 @@
             SubButton.click(function (e) {
                 e.preventDefault();
                 if (userName.val()=="") {
-                    alert('请输入用户名！');
+                    publicMethod.alertError("请输入用户名!");
                     return;
                 }
                 if (passWord.val()=="") {
-                    alert('请输入密码！');
+                    publicMethod.alertError("请输入密码!");
                     return;
                 }
 
@@ -92,10 +93,7 @@
                     if(response.result == 0){
                         window.location.href = response.data.locationUrl;
                     }else {
-                        swal({
-                            title: "温馨提示",
-                            text: response.message
-                        });
+                        publicMethod.alertError(response.message);
                     }
                     }, "json").always(function() { l.stop(); });
                  });
