@@ -109,7 +109,9 @@
                             }
                         });
                     }
-                    return checkUserName();
+                    if(!checkUserName){
+                        return;
+                    }
                 }
                 var szReg=/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
                 if (userEmail.val()=="") {

@@ -14,21 +14,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/system/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="58" column="48" lean-forward="false" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+            <state relative-caret-position="-27">
+              <caret line="59" column="27" lean-forward="true" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/system/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="61" column="48" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="48" />
+            <state relative-caret-position="243">
+              <caret line="99" column="65" lean-forward="true" selection-start-line="99" selection-start-column="65" selection-end-line="99" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -187,8 +187,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/company/utils/Const.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/user/UserInfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/company/bo/SysUserBo.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/system/register.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/system/login.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/page/system/register.html" />
       </list>
     </option>
   </component>
@@ -1487,12 +1487,12 @@
       <workItem from="1503468638742" duration="10105000" />
       <workItem from="1503577517223" duration="8713000" />
       <workItem from="1503662359515" duration="13245000" />
-      <workItem from="1503717620608" duration="8024000" />
+      <workItem from="1503717620608" duration="8317000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75968000" />
+    <option name="totallyTimeSpent" value="76261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1977,18 +1977,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/system/register.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/system/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="61" column="48" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="48" />
+        <state relative-caret-position="-27">
+          <caret line="59" column="27" lean-forward="true" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/system/login.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/system/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="58" column="48" lean-forward="false" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+        <state relative-caret-position="243">
+          <caret line="99" column="65" lean-forward="true" selection-start-line="99" selection-start-column="65" selection-end-line="99" selection-end-column="65" />
           <folding />
         </state>
       </provider>
