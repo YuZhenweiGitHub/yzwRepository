@@ -158,7 +158,7 @@ public class UserInfoController extends BaseController {
 		return mv;
 	}
 
-	@RequestMapping(value="/ajaxList")
+	@RequestMapping(value="/ajaxList.json")
 	public @ResponseBody Object ajaxList(Page page) throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"列表UserInfo");
 		//if(!Jurisdiction.buttonJurisdiction(menuUrl, "cha")){return null;} //校验权限(无权查看时页面会有提示,如果不注释掉这句代码就无法进入列表页面,所以根据情况是否加入本句代码)
