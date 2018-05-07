@@ -1657,7 +1657,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/mainIndex/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
@@ -1667,11 +1667,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebSocketPool.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WebSocketPool.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/company/ws/WebSocketPool.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="258">
-              <caret line="89" column="39" lean-forward="false" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="e#329#358#0" expanded="true" />
                 <element signature="e#551#552#0" expanded="true" />
@@ -1700,6 +1700,20 @@
             <state relative-caret-position="477">
               <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WsPool.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/company/ws/WsPool.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#223#242#0" expanded="true" />
+                <element signature="e#1538#1546#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -3049,7 +3063,7 @@
       <workItem from="1522304185558" duration="7036000" />
       <workItem from="1525692351306" duration="1548000" />
       <workItem from="1525696074139" duration="396000" />
-      <workItem from="1525697204337" duration="4836000" />
+      <workItem from="1525697204337" duration="4953000" />
     </task>
     <servers />
   </component>
@@ -3086,7 +3100,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285572000" />
+    <option name="totallyTimeSpent" value="285689000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -3527,30 +3541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/company/ws/WsPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#223#242#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#1259#1260#0" expanded="true" />
-            <element signature="e#1320#1321#0" expanded="true" />
-            <element signature="e#1538#1546#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/mainIndex/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="305" column="39" lean-forward="false" selection-start-line="305" selection-start-column="39" selection-end-line="305" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/im.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -3572,10 +3562,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/company/ws/WsPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#223#242#0" expanded="true" />
+            <element signature="e#1538#1546#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/company/ws/WebSocketPool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
-          <caret line="89" column="39" lean-forward="false" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="e#329#358#0" expanded="true" />
             <element signature="e#551#552#0" expanded="true" />
@@ -3584,6 +3586,14 @@
             <element signature="e#1471#1472#0" expanded="true" />
             <marker date="1525698458079" expanded="false" signature="1691:1699" ph="&lt;~&gt;" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/mainIndex/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="305" column="39" lean-forward="false" selection-start-line="305" selection-start-column="39" selection-end-line="305" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
