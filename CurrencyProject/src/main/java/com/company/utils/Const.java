@@ -25,7 +25,6 @@ public class Const {
 	public static final String SESSION_USERNAME = "USERNAME";			//用户名
 	public static final String SESSION_USERID = "USERID";				//用户id
 
-	public static final String LOGIN = "/login_toLogin.do";				//登录地址
 	public static final String SYSNAME = "admin/config/SYSNAME.txt";	//系统名称路径
 	public static final String PAGE	= "10";//"admin/config/PAGE.txt";			//分页条数配置路径
 	public static final String EMAIL = "admin/config/EMAIL.txt";		//邮箱服务器配置路径
@@ -38,7 +37,7 @@ public class Const {
 	public static final String FILEPATHIMG = "uploadFiles/uploadImgs/";	//图片上传路径
 	public static final String FILEPATHFILE = "uploadFiles/file/";		//文件上传路径
 	public static final String FILEPATHTWODIMENSIONCODE = "uploadFiles/twoDimensionCode/"; //二维码存放路径
-	public static final String NO_INTERCEPTOR_PATH = "(/login/login.html)|(/login/loginOut.html)|(/login/register.json)|(/login/checkUserName.json)";	//不对匹配该值的访问路径拦截（正则）
+	public static final String NO_INTERCEPTOR_PATH = "(/login/register.json)|(/login/login.html)|(/login/loginOut.html)|(/login/checkUserName.json)";	//不对匹配该值的访问路径拦截（正则）
 	public static ApplicationContext WEB_APP_CONTEXT = null; //该值会在web容器启动时由WebAppContextListener初始化
 	
 	/**

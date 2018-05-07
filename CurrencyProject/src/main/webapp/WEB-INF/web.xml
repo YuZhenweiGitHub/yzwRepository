@@ -47,10 +47,6 @@
         <param-value>classpath:spring/applicationContext.xml</param-value>
     </context-param>
 
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
-
     <!-- ================================= 字符编码配置 ================================= -->
     <filter>
         <filter-name>encodingFilter</filter-name>

@@ -8,6 +8,7 @@ import com.company.dao.DaoSupport;
 import com.company.service.user.userinfo.UserInfoManager;
 import com.company.utils.Page;
 import com.company.utils.PageData;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 /** 
@@ -83,7 +84,7 @@ public class UserInfoService implements UserInfoManager{
 	public PageData findById(PageData pd)throws Exception{
 		return (PageData)dao.findForObject("UserInfoMapper.findById", pd);
 	}
-	
+
 	/**
 	 * 批量删除
 	 * @param ArrayDATA_IDS
@@ -98,9 +99,14 @@ public class UserInfoService implements UserInfoManager{
 		return sysUserBo.findUserInfoByUserName(pd);
 	}
 
+	public PageInfo<PageData> list_PageHelper(PageData pd)throws Exception {
+		return sysUserBo.findUserInfoByUserName_PageHelper(pd);
+	}
+
 	@Override
 	public Boolean checkUserName(String userName) throws Exception {
 		return sysUserBo.checkUserName(userName);
 	}
+
 }
 

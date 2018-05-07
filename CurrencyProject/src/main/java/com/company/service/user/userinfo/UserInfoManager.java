@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.company.utils.Page;
 import com.company.utils.PageData;
+import com.github.pagehelper.PageInfo;
 
 /** 
  * 说明： 用户表接口
@@ -75,6 +76,8 @@ public interface UserInfoManager{
 	 * @throws Exception
 	 */
 	public List<PageData> findUserInfoByUserName(PageData pd) throws Exception;
+
+	public PageInfo<PageData> list_PageHelper(PageData pd)throws Exception;
 
 	/**
 	 * 验证用户名是否唯一

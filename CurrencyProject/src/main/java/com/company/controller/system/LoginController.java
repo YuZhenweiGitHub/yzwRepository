@@ -1,18 +1,20 @@
 package com.company.controller.system;
 
 import com.alibaba.fastjson.JSONObject;
+import com.company.controller.websocket.WebSocketController;
 import com.company.service.user.userinfo.UserInfoManager;
 import com.company.utils.*;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -174,6 +176,11 @@ public class LoginController extends BaseController{
         return new ModelAndView("page/mainIndex/index");
     }
 
+    @RequestMapping(value = "/sendMsg")
+    public void sendMessage(@RequestParam String msg) throws Exception {
+        WebSocketController.sendToAllUser(msg);
+    }
+
     /**
      * 桌面
      * @param request
@@ -255,5 +262,15 @@ public class LoginController extends BaseController{
             responseContextUtil.setMessage("缺少参数");
         }
         return responseContextUtil;
+    }
+
+    // shiro验证失败异常
+    @ExceptionHandler({UnauthorizedException.class})
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ModelAndView processUnauthenticatedException(NativeWebRequest request, UnauthorizedException e) {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("exception", e);
+        mv.setViewName("500");
+        return mv;
     }
 }

@@ -240,19 +240,19 @@
                 <small class="chat-date pull-right">
                     02.19.2015
                 </small>
-                Small chat
+                <span>即时聊天</span>
             </div>
 
-            <div class="content">
+            <div class="content" id="MessageContent">
 
-                <div class="left">
+                <!--<div class="left">
                     <div class="author-name">
                         Monica Jackson <small class="chat-date">
                         10:02 am
                     </small>
                     </div>
                     <div class="chat-message active">
-                        Lorem Ipsum is simply dummy text input.
+                        左一
                     </div>
 
                 </div>
@@ -275,7 +275,7 @@
                         </small>
                     </div>
                     <div class="chat-message active">
-                        Check this stock char.
+                        左二
                     </div>
                 </div>
                 <div class="right">
@@ -297,21 +297,17 @@
                         </small>
                     </div>
                     <div class="chat-message active">
-                        I belive that. Lorem Ipsum is simply dummy text.
                     </div>
-                </div>
-
-
+                </div>-->
             </div>
             <div class="form-chat">
-                <div class="input-group input-group-sm"><input type="text" class="form-control"> <span class="input-group-btn"> <button
-                        class="btn btn-primary" type="button">Send
+                <div class="input-group input-group-sm"><input type="text" class="form-control" id="sendText"> <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" onclick="IM.sendAll();">发送
                 </button> </span></div>
             </div>
 
         </div>
         <div id="small-chat">
-
             <span class="badge badge-warning pull-right">5</span>
             <a class="open-small-chat">
                 <i class="fa fa-comments"></i>
@@ -686,7 +682,7 @@
                                 And typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                                 Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
                             </div>
-                        </div>
+                        </div>h
                     </div>
                 </div>
             </div>
@@ -732,7 +728,8 @@
     <!-- Toastr -->
     <script src="/static/js/plugins/toastr/toastr.min.js"></script>
 
-
+    <!-- im.js -->
+    <script src="/static/js/im.js"></script>
     <script>
         $(document).ready(function() {
             setTimeout(function() {
@@ -742,11 +739,11 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
+                toastr.success('Responsive Admin Theme', '(｡･∀･)ﾉﾞ嗨');
 
             }, 1300);
         });
-
+        IM.initWs();
         var mainIndex = {
             jumpRightIframe : function (jumpUrl) {
                 document.getElementById("rightIframe").src = jumpUrl;

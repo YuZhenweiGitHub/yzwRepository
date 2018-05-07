@@ -146,18 +146,16 @@
 		from
 		<include refid="tableName"></include>
 		where DELTE_FLAG_ !=<include refid="deleteState"/>
-		<if test="pd.keywords!= null and pd.keywords != ''"><!-- 关键词检索 -->
+		<if test="keywords!= null and keywords != ''"><!-- 关键词检索 -->
 			and
 			(
 				<!-- 根据需求自己加检索条件 -->
-				USER_NAME_ LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+				USER_NAME_ LIKE CONCAT(CONCAT('%', #{keywords}),'%')
                  or
-				USERE_NICK_NAME_ LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+				USERE_NICK_NAME_ LIKE CONCAT(CONCAT('%', #{keywords}),'%')
 			)
 		</if>
-		<if test="currentPage!= null and showCount!= null ">
-			limit ${currentPage},${showCount}
-		</if>
+
 	</select>
 
 	<!-- 总记录数 -->

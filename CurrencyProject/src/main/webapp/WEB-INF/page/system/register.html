@@ -75,14 +75,25 @@
     <script src="/static/js/plugins/sweetalert/sweetalert.min.js"></script>
 
     <script>
+        var emailReg=/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+
         $(document).ready(function(){
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
             });
+
             var userName = $('#USER_NAME_');
             var userEmail = $('#USERE_EMAIL_');
             var passWord = $('#PASS_WORD_');
+
+            $("#USERE_EMAIL_").bind("blur",function () {
+                if(userEmail.val()!=""&&!emailReg.test($.trim(userEmail.val()))){
+                    publicMethod.alertError("邮箱格式错误，请重新输入!");
+                    $("#USERE_EMAIL_").focus();
+                    return;
+                }
+            });
 
             var Agreement = $('#Agreement');
             var SubButton = $('#SubButton');
@@ -113,11 +124,10 @@
                         return;
                     }
                 }
-                var szReg=/^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
                 if (userEmail.val()=="") {
                     publicMethod.alertError("请输入电子邮箱!");
                     return;
-                }else if(!szReg.test($.trim(userEmail.val()))){
+                }else if(!emailReg.test($.trim(userEmail.val()))){
                     publicMethod.alertError("邮箱格式错误，请重新输入!");
                     return;
                 }

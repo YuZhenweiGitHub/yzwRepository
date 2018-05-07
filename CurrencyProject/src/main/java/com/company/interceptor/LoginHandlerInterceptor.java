@@ -40,7 +40,7 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
         HttpSession session = req.getSession();
         if (session == null || session.getAttribute(sessionKey) == null) {
             //如果判断是 AJAX 请求,直接设置为session超时
-            if (req.getHeader("x-requested-with") != null && req.getHeader("x-requested-with").equals("XMLHttpRequest")) {
+            if (isAjax(request)) {
                 rep.setContentType("text/html; charset=GBK");
                 PrintWriter out = response.getWriter();
                 JSONObject jo = new JSONObject();
@@ -57,5 +57,11 @@ public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
             }
         }
         return true;
+    }
+
+    // 是否为ajax请求
+    private boolean isAjax(ServletRequest request){
+        HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+        return "XMLHttpRequest".equalsIgnoreCase(httpServletRequest.getHeader("X-Requested-With"));
     }
 }

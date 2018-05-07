@@ -62,6 +62,16 @@ public class PageData extends HashMap implements Map{
 			return null;
 		return String.valueOf(o);
 	}
+
+	public Integer getInt(Object key) {
+		Integer tmp = 0;
+		try {
+			tmp = Integer.parseInt(this.getString(key));
+		} catch (NumberFormatException e) {
+
+		}
+		return tmp;
+	}
 	
 	@SuppressWarnings("unchecked")
 	@Override

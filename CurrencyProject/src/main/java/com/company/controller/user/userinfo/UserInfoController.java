@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 
-import com.alibaba.fastjson.JSON;
-import com.company.entity.datatable.DataTable;
+import com.company.entity.DataTable;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -50,10 +50,7 @@ public class UserInfoController extends BaseController {
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		pd.put("ID_", this.get32UUID());	//主键
-		if(null != pd.get("UU_ID_")){
-			pd.put("UU_ID_", pd.get("UU_ID_"));
-		}
+		pd.put("UU_ID_", this.get32UUID());
 		if(null != pd.get("USER_NAME_")){
 			pd.put("USER_NAME_", pd.get("USER_NAME_"));
 		}
@@ -145,21 +142,15 @@ public class UserInfoController extends BaseController {
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		String keywords = pd.getString("keywords");				//关键词检索条件
-		if(null != keywords && !"".equals(keywords)){
-			pd.put("keywords", keywords.trim());
-		}
-		page.setPd(pd);
-		List<PageData>	varList = userInfoService.list(page);	//列出UserInfo列表
+
 		mv.setViewName("page/listPage/table_data_tables");
-		mv.addObject("varList", varList);
 		mv.addObject("pd", pd);
 		mv.addObject("QX",Jurisdiction.getHC());	//按钮权限
 		return mv;
 	}
 
 	@RequestMapping(value="/ajaxList.json")
-	public @ResponseBody Object ajaxList(Page page) throws Exception{
+	public @ResponseBody Object ajaxList() throws Exception{
 		logBefore(logger, Jurisdiction.getUsername()+"列表UserInfo");
 		//if(!Jurisdiction.buttonJurisdiction(menuUrl, "cha")){return null;} //校验权限(无权查看时页面会有提示,如果不注释掉这句代码就无法进入列表页面,所以根据情况是否加入本句代码)
 		ModelAndView mv = this.getModelAndView();
@@ -170,17 +161,16 @@ public class UserInfoController extends BaseController {
 		if(null != keywords && !"".equals(keywords)){
 			pd.put("keywords", keywords.trim());
 		}
-		page.setPd(pd);
-		Integer totalRecords = userInfoService.findTotalRecords(pd);
-		page.setCurrentPage(Integer.parseInt(pd.getString("start")));
-		page.setShowCount(Integer.parseInt(pd.getString("length")));
-		List<PageData> varList = userInfoService.list(page);	//列出UserInfo列表
+		pd.put("pageNo", (pd.getInt("start")/pd.getInt("length"))+1);
+		pd.put("pageSize", pd.getInt("length"));
+		PageInfo<PageData> pageInfo = userInfoService.list_PageHelper(pd);
+		//List<PageData> varList = userInfoService.list(page);	//列出UserInfo列表
 		DataTable table = new DataTable();
-		table.setColumns(varList);
+		table.setColumns(pageInfo.getList());
 		table.setDraw(draw);
-		table.setTotalRecords(totalRecords);
+		table.setTotalRecords(pageInfo.getTotal());
 		/*mv.addObject("QX",Jurisdiction.getHC());	*///按钮权限
-		return table.toString();
+		return table;
 	}
 
 	/**

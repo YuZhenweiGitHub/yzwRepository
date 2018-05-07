@@ -33,9 +33,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
         <property name="suffix" value=".html"/>    <!-- 后缀 -->
     </bean>
     <!-- 访问静态文件（jpg,js,css）的方法 -->
-    <mvc:resources location="/static/" mapping="/static/**" />
-    <mvc:resources location="/scripts/" mapping="/scripts/**" />
-    <mvc:resources location="/views/" mapping="/views/**" />
+    <mvc:resources location="static/" mapping="/static/**" />
+    <mvc:resources location="scripts/" mapping="/scripts/**" />
+    <mvc:resources location="views/" mapping="/views/**" />
 
     <!-- session拦截器 -->
     <mvc:interceptors>
@@ -43,6 +43,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
             <mvc:mapping path="/*/*.json"/>
             <mvc:mapping path="/*/*.html"/>
             <mvc:exclude-mapping path="/system/register.html"/>
+            <mvc:exclude-mapping path="/system/register.json"/>
             <mvc:exclude-mapping path="/system/login.html"/>
             <mvc:exclude-mapping path="/login/vrifyLogin.json"/>
             <bean class="com.company.interceptor.LoginHandlerInterceptor"/>
